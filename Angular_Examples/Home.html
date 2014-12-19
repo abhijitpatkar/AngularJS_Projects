@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--<title>This is First Html File</title>-->
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="home.js"></script>
+</head>
+<body ng-app="myapp" >
+<div ng-controller="HelloController" ng-init="quantity=1;cost=30;marks=[58,95,36,47,52];countries=[{locale:'en-US',name:'United States'},
+{locale:'en-GB',name:'United Kingdom'},{locale:'en-GB',name:'United Kingdom'},
+{locale:'en-FR',name:'France'}]">
+    <ol>
+    <li ng-repeat="country in countries">
+        {{'country: '+country.name+',Locale: '+country.locale}}
+    </li>
+    </ol>
+    <h1><center>Welcome {{helloTo}} in world of Tutorials point</center></h1>
+    <p>Enter your first name <input type="text" ng-model="fname"/></p>
+    <p>Enter your last name <input type="text" ng-model="lname"/></p>
+    <p>Your name is {{fname+' '+lname}}</p>
+    <p>{{cost * quantity}}</p>
+    <p>Marks : {{marks[3]+marks[4]}}</p>
+
+
+</div>
+<div ng-controller="Examplefirst">
+    <h1><center>Welcome {{helloTo}} in world of Tutorials point</center></h1>
+
+    Hello this is second controller in same Application
+    <p>This line is from  {{newApp}} </p>
+
+</div>
+<div ng-controller="Repeter">
+    <table border="1">
+            <tr ng-repeat="animal in animalList track by $index"><td>{{animal}} </td><td><a href="" ng-click="removeName(animal)">remove</a></td></tr>
+
+    </table>
+    <table>
+        <tr>
+            <td>
+
+            </td>
+        </tr>
+    </table><br>-----------------------------------------------------------------------------------------------------------------------------------------------------------------<br>
+    <table border="1">
+            <thead>
+            <th>Country</th>
+            <th>Population</th>
+            </thead>
+            <tr ng-repeat="coun in counDicty">
+                <td>{{coun.name}}</td><td>{{coun.population}}</td>
+            </tr>
+    </table>
+        <form ng-submit="addName()">
+            <input type="text" ng-model="enterName"/>
+            <input type="submit" value="add">
+        </form>
+</div>
+
+
+<!--<script>
+    angular.module("myapp",[])
+            .controller("HelloController",function($scope){
+                    $scope.helloTo={}
+                    $scope.helloTo.title="AngularJS"
+            });
+</script>
+-->
+
+</body>
+</html>
